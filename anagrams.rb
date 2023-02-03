@@ -18,8 +18,7 @@ end
 def second_anagram(str1,str2)
     str1.each_char do |char| 
         return false if str2.index(char).nil? 
-        idx = str2.index(char)
-        str2.delete(char)
+        str2=str2.delete(char)
     end 
-    str2.empty? 
+    str2.empty?
 end 

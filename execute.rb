@@ -35,8 +35,19 @@ def largest_contiguous_subsum_2(arr)
     #O(n) time and O(1) space 
     #variable to store largest sum so far 
     #variable to store "current" sum 
-    
+    largest_sum = arr[0]
+    current_sum = 0
+    arr.each do |ele|
+        current_sum += ele
+        if current_sum > largest_sum
+            largest_sum = current_sum
+        elsif current_sum < 0
+            current_sum = 0
+        end
     end
+    largest_sum
 end 
 
-
+p largest_contiguous_subsum_2([5, 3, -7])
+p largest_contiguous_subsum_2([2, 3, -6, 7, -6, 7])
+p largest_contiguous_subsum_2([-5, -1, -3])

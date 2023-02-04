@@ -22,3 +22,24 @@ def second_anagram(str1,str2)
     end 
     str2.empty?
 end 
+
+def third_anagram(str1,str2)
+    str1.split("").sort == str2.split("").sort 
+end 
+
+def fourth_anagram(str1,str2)
+    hasher(str1) == hasher(str2)
+end 
+
+def hasher(str)
+    hash = Hash.new(0)
+    str.each_char{|char|hash[char]+=1}
+    hash 
+end 
+
+def bonus_anagram(str1,str2)
+    hash = Hash.new(0)
+    str1.each_char{|char|hash[char]+=1}
+    str2.each_char{|char|hash[char]+=1}
+    hash.values.all?{|ele|ele.even?}
+end 
